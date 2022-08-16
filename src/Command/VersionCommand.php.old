@@ -1,0 +1,35 @@
+<?php
+
+namespace Ankor\Command;
+
+use Ankor\PipelineInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class VersionCommand extends Command
+{
+    protected static $defaultName = 'ankor:version';
+    protected ContainerInterface $container;
+    protected PipelineInterface $pipeline;
+
+    public function __construct(ContainerInterface $container, PipelineInterface $pipeline)
+    {
+        $this->container = $container;
+        $this->pipeline = $pipeline;
+        parent::__construct(self::$defaultName);
+    }
+
+    protected function configure(): void
+    {
+        $this
+            ->setDescription('Showing the version info')
+            ->setHelp('This command will display the version number of the cli');
+    }
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $output->writeln(sprintf("<fg=green;options=bold>→ %s v0.0.1 </>", "Ankor"));
+        return Command::SUCCESS;
+    }
+}

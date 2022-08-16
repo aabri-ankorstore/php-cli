@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+use Ankor\App;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+
+require __DIR__.'/../vendor/autoload.php';
+
+try {
+    $container = new ContainerBuilder;
+    $fileLocator = new FileLocator(__DIR__ . '/../config');
+    (new PhpFileLoader($container, $fileLocator))->load('services.php');
+    $container->compile();
+
+    ($container->get(App::class))->run();
+} catch (Exception $e) {
+    die($e->getMessage());
+}
