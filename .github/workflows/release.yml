@@ -67,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           asset_content_type: text/plain
-          asset_name: ankor-${{ env.tag }}.phar
-          asset_path: "${{ env.ANKOR_PHAR }}"
+          asset_name: ankor-${{ env.tag }}
+          asset_path: ankor-${{ env.tag }}
           upload_url: ${{ steps.get.outputs.upload_url }}
           
