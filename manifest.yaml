@@ -1,0 +1,21 @@
+name: php-cli
+version: v0.0.1
+binaries:
+  - arch: amd64
+    os: darwin
+    path: https://github.com/aabri-ankorstore/php-cli/releases/download/v0.0.1/ankor
+  - arch: arm64
+    os: darwin
+    path: https://github.com/aabri-ankorstore/php-cli/releases/download/v0.0.1/ankor
+  - arch: amd64
+    os: linux
+    path: https://github.com/aabri-ankorstore/php-cli/releases/download/v0.0.1/ankor
+  - arch: arm64
+    os: linux
+    path: https://github.com/aabri-ankorstore/php-cli/releases/download/v0.0.1/ankor
+commands:
+  - name: "php-cli"
+    baseArgs: []
+    usage: "Demo PHP -cli"
+dependencies:
+  - name: php
