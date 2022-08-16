@@ -17,6 +17,6 @@
     ],
     "git-version": "package_version",
     "main": "bin/ankor",
-    "output": "autoupdate/stable/ankor.phar",
+    "output": "autoupdate/stable/ankor",
     "stub": true
 }
